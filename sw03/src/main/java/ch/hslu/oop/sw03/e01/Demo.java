@@ -2,6 +2,11 @@ package ch.hslu.oop.sw03.e01;
 
 public class Demo {
 
+    /**
+     * Prints a hollow box in the size of the given height times length
+     * @param height - height of box
+     * @param length - length of box
+     */
     public void printBox(final int height, final int length) {
         for (int i = 0; i < height; i++) {
             if (i == 0 || i == height - 1) {
@@ -32,6 +37,9 @@ public class Demo {
         }
     }
 
+    /**
+     * iteratively adds 0.000025f to 0.9f until the value is 1.0f
+     */
     public void iterativeAdditionUntil1() {
         float x = 0.9f;
         int i = 0;
@@ -50,6 +58,12 @@ public class Demo {
         }
     }
 
+    /**
+     * returns the max value of two given values
+     * @param a first value
+     * @param b second value
+     * @return max value
+     */
     public int max1(int a, int b) {
         return Math.max(a, b);
     }
