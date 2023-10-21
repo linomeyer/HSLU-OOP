@@ -48,14 +48,11 @@ public class Temperature {
     }
 
     public AggregateState getAggregateState(String element) {
-        switch (element) {
-            case "N":
-                return new Nitrogen(element, this).getAggregateState();
-            case "Hg":
-                return new Quicksilver(element, this).getAggregateState();
-            default:
-                return AggregateState.UNDEFINED;
-        }
+        return switch (element) {
+            case "N" -> new Nitrogen(element, this).getAggregateState();
+            case "Hg" -> new Quicksilver(element, this).getAggregateState();
+            default -> AggregateState.UNDEFINED;
+        };
     }
 
 }

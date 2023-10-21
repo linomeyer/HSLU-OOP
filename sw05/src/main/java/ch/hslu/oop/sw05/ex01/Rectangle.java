@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw05;
+package ch.hslu.oop.sw05.ex01;
 
 public final class Rectangle extends Shape {
     private int width;
@@ -10,7 +10,12 @@ public final class Rectangle extends Shape {
         this.height = height;
     }
 
-    public void changeDimension(int width, int height) {
+    public Rectangle(int width, int height) {
+        this.width = width;
+        this.height = height;
+    }
+
+    public void changeDimension(final int width, final int height) {
         this.width = width;
         this.height = height;
     }
@@ -25,11 +30,11 @@ public final class Rectangle extends Shape {
 
     @Override
     public double getPerimeter() {
-        return 2 * getX() + 2 * getY();
+        return (2 * width) + (2 * height);
     }
 
     @Override
     public double getArea() {
-        return getX() * getY();
+        return width * height;
     }
 }

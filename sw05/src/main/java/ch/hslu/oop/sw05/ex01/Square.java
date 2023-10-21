@@ -1,17 +1,22 @@
-package ch.hslu.oop.sw05;
+package ch.hslu.oop.sw05.ex01;
 
 public class Square extends Shape {
     private int length;
 
-    protected Square(int x, int y, int length) {
+    public Square(int x, int y, int length) {
         super(x, y);
+        this.length = length;
+    }
+
+    public Square(int length) {
+        this.length = length;
     }
 
     public int getLength() {
         return length;
     }
 
-    public void setLength(int length) {
+    public void setLength(final int length) {
         this.length = length;
     }
 

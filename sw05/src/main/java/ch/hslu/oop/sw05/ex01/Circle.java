@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw05;
+package ch.hslu.oop.sw05.ex01;
 
 import static java.lang.Math.PI;
 
@@ -10,8 +10,8 @@ public final class Circle extends Shape {
         this.diameter = diameter;
     }
 
-
-    public void setDiameter(int diameter) {
+    public Circle(int diameter) {
+        super();
         this.diameter = diameter;
     }
 
@@ -19,8 +19,14 @@ public final class Circle extends Shape {
         return diameter;
     }
 
+    public void setDiameter(int diameter) {
+        this.diameter = diameter;
+    }
+
     /**
-     * @return Perimeter of circle rounded to two decimal places
+     * {@inheritDoc}
+     *
+     * @return the value rounded to two decimal places
      */
     @Override
     public double getPerimeter() {
@@ -28,7 +34,9 @@ public final class Circle extends Shape {
     }
 
     /**
-     * @return Area of circle rounded to two decimal places
+     * {@inheritDoc}
+     *
+     * @return the value rounded to two decimal places
      */
     @Override
     public double getArea() {

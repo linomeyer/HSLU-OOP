@@ -1,8 +1,8 @@
-package ch.hslu.oop.sw03.e02;
+package ch.hslu.oop.sw05.ex02;
 
 public abstract class Element {
     private final String name;
-    private final Temperature temperature;
+    private Temperature temperature;
 
     protected Element(String name, Temperature temperature) {
         this.name = name;
@@ -19,4 +19,7 @@ public abstract class Element {
         return temperature;
     }
 
+    public void setTemperature(final Temperature temperature) {
+        this.temperature = temperature;
+    }
 }
