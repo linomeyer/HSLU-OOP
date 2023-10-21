@@ -1,15 +1,18 @@
 package ch.hslu.oop.sw05.ex03;
 
-public class Motor implements CountingSwitchable {
+public class Motor implements CountingSwitchable, Named {
+    private String name;
     private int rpm;
     private int switchCounter;
 
-    public Motor() {
+    public Motor(String name) {
+        this.name = name;
         switchCounter = 0;
         rpm = 0;
     }
 
-    public Motor(int rpm) {
+    public Motor(String name, int rpm) {
+        this.name = name;
         switchCounter = 0;
         this.rpm = rpm;
     }
@@ -53,4 +56,13 @@ public class Motor implements CountingSwitchable {
         this.rpm = rpm;
     }
 
+    @Override
+    public String getName() {
+        return name;
+    }
+
+    @Override
+    public void setName(final String name) {
+        this.name = name;
+    }
 }
