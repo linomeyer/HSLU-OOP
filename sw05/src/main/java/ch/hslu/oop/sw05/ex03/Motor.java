@@ -48,14 +48,6 @@ public class Motor implements CountingSwitchable, Named {
         return switchCounter;
     }
 
-    public int getRpm() {
-        return rpm;
-    }
-
-    public void setRpm(final int rpm) {
-        this.rpm = rpm;
-    }
-
     @Override
     public String getName() {
         return name;
@@ -64,5 +56,13 @@ public class Motor implements CountingSwitchable, Named {
     @Override
     public void setName(final String name) {
         this.name = name;
+    }
+
+    public int getRpm() {
+        return rpm;
+    }
+
+    public void setRpm(final int rpm) {
+        this.rpm = rpm;
     }
 }

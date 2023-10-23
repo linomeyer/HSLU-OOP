@@ -11,8 +11,7 @@ public final class Circle extends Shape {
     }
 
     public Circle(int diameter) {
-        super();
-        this.diameter = diameter;
+        this(0, 0, diameter);
     }
 
     public int getDiameter() {

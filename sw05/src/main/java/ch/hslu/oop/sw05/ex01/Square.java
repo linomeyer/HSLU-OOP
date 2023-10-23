@@ -9,7 +9,7 @@ public class Square extends Shape {
     }
 
     public Square(int length) {
-        this.length = length;
+        this(0, 0, length);
     }
 
     public int getLength() {

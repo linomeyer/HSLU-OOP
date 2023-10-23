@@ -13,11 +13,6 @@ public abstract class Shape {
         this.y = y;
     }
 
-    protected Shape() {
-        x = 0;
-        y = 0;
-    }
-
     public void move(int x, int y) {
         this.x = x;
         this.y = y;

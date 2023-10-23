@@ -11,8 +11,7 @@ public final class Rectangle extends Shape {
     }
 
     public Rectangle(int width, int height) {
-        this.width = width;
-        this.height = height;
+        this(0, 0, width, height);
     }
 
     public void changeDimension(final int width, final int height) {

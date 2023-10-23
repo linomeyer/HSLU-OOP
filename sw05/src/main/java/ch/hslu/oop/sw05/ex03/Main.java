@@ -10,6 +10,6 @@ public class Main {
         motor.switchOff();
 
         System.out.println("Switch count of motor: " + motor.getSwitchCount());
-        System.out.println("Autoname: " + motor.getName());
+        System.out.println("Car name: " + motor.getName());
     }
 }
