@@ -47,4 +47,10 @@ public class Temperature {
         System.out.println("Temperature in Kelvin: " + getTemperatureInKelvin());
     }
 
+    @Override
+    public String toString() {
+        return "Temperature{" +
+                "degreeInCelsius=" + degreeInCelsius +
+                '}';
+    }
 }

@@ -29,11 +29,17 @@ public class Point {
         moveRelative(point.getX(), point.getY());
     }
 
-    public void moveRelative(double angle, int amount) {
-        int y = this.y + Math.toIntExact(Math.round(amount / Math.sin(Math.toRadians(angle))));
-        int x = this.x + Math.toIntExact(Math.round(amount / Math.cos(Math.toRadians(angle))));
+    /**
+     * Move Point by angle and distance relative to the location the end point.
+     *
+     * @param angle    angle from Point to the location it will be moved to
+     * @param distance distance from Point to the location it will be moved to
+     */
+    public void moveRelative(double angle, int distance) {
+        int yIntercept = Math.toIntExact(Math.round(distance / Math.sin(Math.toRadians(angle))));
+        int xIntercept = Math.toIntExact(Math.round(distance / Math.cos(Math.toRadians(angle))));
 
-        moveRelative(x, y);
+        moveRelative(xIntercept, yIntercept);
     }
 
     public int getQuadrant() {

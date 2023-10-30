@@ -37,11 +37,11 @@ public abstract class Element {
 
     @Override
     public String toString() {
-        return "Element{" +
+        return "Element {" +
                 "name='" + name + '\'' +
-                ", meltingTemperature=" + meltingTemperature +
-                ", boilingTemperature=" + boilingTemperature +
-                ", temperature=" + temperature +
+                ", meltingTemperature=" + meltingTemperature.toString() +
+                ", boilingTemperature=" + boilingTemperature.toString() +
+                ", temperature=" + temperature.toString() +
                 '}';
     }
 }
