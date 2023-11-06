@@ -5,7 +5,7 @@ public class CalculatorImpl implements Calculator {
 
     @Override
     public int addition(int a, int b) throws IntegerOverflowException {
-        long sumAsLong = (long) a + (long) b;
+        long sumAsLong = (long) a + b;
         if (sumAsLong > INTEGER_LIMIT || sumAsLong < -INTEGER_LIMIT) {
             throw new IntegerOverflowException("Integer Overflow!");
         }

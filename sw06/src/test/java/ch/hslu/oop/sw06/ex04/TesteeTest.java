@@ -38,7 +38,7 @@ class TesteeTest {
 
         int max = Testee.maxOfThree(a, b, c);
 
-        assertEquals(b, max);
+        assertEquals(c, max);
     }
 
     @Test

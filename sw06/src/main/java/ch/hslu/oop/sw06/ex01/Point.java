@@ -10,8 +10,7 @@ public class Point {
     }
 
     public Point(Point point) {
-        x = point.x;
-        y = point.y;
+        this(point.x, point.y);
     }
 
     /**
@@ -20,13 +19,13 @@ public class Point {
      * @param xIntercept value by which the point moves on the x-axis
      * @param yIntercept value by which the point moves on the y-axis
      */
-    public void moveRelative(int xIntercept, int yIntercept) {
-        x += xIntercept;
-        y += yIntercept;
+    public void moveRelativeCartesian(int xIntercept, int yIntercept) {
+        this.x += xIntercept;
+        this.y += yIntercept;
     }
 
-    public void moveRelative(Point point) {
-        moveRelative(point.getX(), point.getY());
+    public void moveRelativeCartesian(Point point) {
+        this.moveRelativeCartesian(point.getX(), point.getY());
     }
 
     /**
@@ -35,11 +34,11 @@ public class Point {
      * @param angle    angle from Point to the location it will be moved to
      * @param distance distance from Point to the location it will be moved to
      */
-    public void moveRelative(double angle, int distance) {
+    public void moveRelativePolar(double angle, int distance) {
         int yIntercept = Math.toIntExact(Math.round(distance / Math.sin(Math.toRadians(angle))));
         int xIntercept = Math.toIntExact(Math.round(distance / Math.cos(Math.toRadians(angle))));
 
-        moveRelative(xIntercept, yIntercept);
+        moveRelativeCartesian(xIntercept, yIntercept);
     }
 
     public int getQuadrant() {
@@ -68,6 +67,6 @@ public class Point {
 
     @Override
     public String toString() {
-        return String.format("Class Point: [x: %s y: %s]", x, y);
+        return String.format("Point[x=%s, y=%s]", x, y);
     }
 }

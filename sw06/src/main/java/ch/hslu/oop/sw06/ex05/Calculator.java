@@ -1,7 +1,7 @@
 package ch.hslu.oop.sw06.ex05;
 
 /**
- * This interface allows the implementation of simple calculator that adds 2 numbers.
+ * This interface allows the implementation of a simple calculator that adds 2 numbers.
  */
 public interface Calculator {
     /**

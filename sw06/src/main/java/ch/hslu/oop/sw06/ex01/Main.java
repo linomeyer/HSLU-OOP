@@ -6,13 +6,13 @@ public class Main {
         Point point2 = new Point(point);
         Point point3 = new Point(point2);
 
-        point.moveRelative(new Point(3, 3));
+        point.moveRelativeCartesian(new Point(3, 3));
         System.out.println(point);
 
-        point2.moveRelative(1, 2);
+        point2.moveRelativeCartesian(1, 2);
         System.out.println(point2);
 
-        point3.moveRelative(45.0, 2);
+        point3.moveRelativePolar(45.0, 2);
         System.out.println(point3);
 
     }
