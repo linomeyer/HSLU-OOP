@@ -1,4 +1,4 @@
-package ch.hslu.oop.sw09;
+package ch.hslu.oop.sw10;
 
 import org.junit.jupiter.api.Test;
 

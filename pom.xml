@@ -19,6 +19,7 @@
         <module>sw07</module>
         <module>sw08</module>
         <module>sw09</module>
+        <module>sw10</module>
     </modules>
 
     <properties>
