@@ -21,13 +21,16 @@ public class Main {
                 double value = Double.parseDouble(input);
                 temperatureProgression.add(Temperature.createFromCelsius(value));
                 LOG.info("Temperature: {}°C", value);
-            } catch (NumberFormatException exception) {
+            } catch (NumberFormatException ex) {
                 if (!input.equals("exit")) {
                     System.out.println("Bitte eine Zahl eingeben!");
-                    LOG.error("Not a Temperature!", exception);
+                    LOG.error("Not a Temperature!", ex);
                 } else {
                     System.out.println(temperatureProgression);
                 }
+            } catch (IllegalArgumentException ex) {
+                System.out.println("Diese Temperatur ist physikalisch unmöglich!");
+                LOG.error("This temperature is physically impossible", ex);
             }
         } while (!"exit".equals(input));
         System.out.println("Programm beendet.");

@@ -7,44 +7,63 @@ public class TemperatureProgression {
     private final List<TemperatureAddListener> changeListeners;
     private final Collection<Temperature> temperatures;
 
+    private Temperature minTemperature;
+    private Temperature maxTemperature;
+
     public TemperatureProgression() {
-        this(null);
+        this(new ArrayList<>());
     }
 
     public TemperatureProgression(Collection<Temperature> temperatures) {
         changeListeners = new ArrayList<>();
-
-        if (temperatures == null) {
-            temperatures = new ArrayList<>();
-        }
         this.temperatures = temperatures;
     }
 
     public void add(Temperature temperature) {
-        if (temperatures.contains(temperature)) {
-            return;
-        }
-        fireTemperatureEventIfNewMaxOrMinValueIsAdded(temperature);
-
         Collections.addAll(temperatures, temperature);
+        fireTemperatureEventIfNewMaxOrMinValueIsAdded(temperature);
     }
 
     private void fireTemperatureEventIfNewMaxOrMinValueIsAdded(Temperature temperature) {
-        if (!temperatures.isEmpty()) {
-            if (isMaxTemperature(temperature)) {
-                fireTemperatureEvent(new TemperatureEvent(this, TemperatureEventType.MAX, temperature));
-            } else if (isMinTemperature(temperature)) {
-                fireTemperatureEvent(new TemperatureEvent(this, TemperatureEventType.MIN, temperature));
-            }
+        if (isMaxTemperature(temperature)) {
+            fireTemperatureEvent(new TemperatureEvent(this, TemperatureEventType.MAX, temperature));
+        }
+        if (isMinTemperature(temperature)) {
+            fireTemperatureEvent(new TemperatureEvent(this, TemperatureEventType.MIN, temperature));
         }
     }
 
     private boolean isMinTemperature(Temperature temperature) {
-        return temperature.getTemperatureInCelcius() < getMinTemperature().getTemperatureInCelcius();
+        // Check if a minTemperature is already set
+        if (minTemperature != null) {
+            if (temperature.getTemperatureInCelsius() < minTemperature.getTemperatureInCelsius()) {
+                minTemperature = temperature;
+                return true;
+            }
+            return false;
+            // If object was created with an already filled list, we need to determine the MinTemperature first
+        } else if (temperatures.size() > 1) {
+            minTemperature = getMinTemperature();
+            return temperature.getTemperatureInCelsius() == minTemperature.getTemperatureInCelsius();
+        }
+        // Because this is the first temperature in the list, we can just make it the minTemperature
+        minTemperature = temperature;
+        return true;
     }
 
     private boolean isMaxTemperature(Temperature temperature) {
-        return temperature.getTemperatureInCelcius() > getMaxTemperature().getTemperatureInCelcius();
+        if (maxTemperature != null) {
+            if (temperature.getTemperatureInCelsius() > maxTemperature.getTemperatureInCelsius()) {
+                maxTemperature = temperature;
+                return true;
+            }
+            return false;
+        } else if (temperatures.size() > 1) {
+            minTemperature = getMinTemperature();
+            return temperature.getTemperatureInCelsius() == maxTemperature.getTemperatureInCelsius();
+        }
+        maxTemperature = temperature;
+        return true;
     }
 
     public Collection<Temperature> getTemperatures() {
@@ -77,7 +96,7 @@ public class TemperatureProgression {
         }
         return Temperature.createFromCelsius(temperatures
                 .stream()
-                .map(Temperature::getTemperatureInCelcius)
+                .map(Temperature::getTemperatureInCelsius)
                 .mapToDouble(Double::doubleValue).sum() / temperatures.size());
     }
 

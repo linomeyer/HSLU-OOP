@@ -31,7 +31,7 @@ public final class Temperature implements Comparable<Temperature> {
         return degreeInKelvin - KELVIN_OFFSET;
     }
 
-    public double getTemperatureInCelcius() {
+    public double getTemperatureInCelsius() {
         return degreeInCelsius;
     }
 
@@ -52,14 +52,14 @@ public final class Temperature implements Comparable<Temperature> {
     }
 
     @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        return (o instanceof Temperature t) && Double.compare(degreeInCelsius, t.degreeInCelsius) == 0;
+    public int hashCode() {
+        return Objects.hash(degreeInCelsius);
     }
 
     @Override
-    public int hashCode() {
-        return Objects.hash(degreeInCelsius);
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        return (o instanceof Temperature t) && Double.compare(degreeInCelsius, t.degreeInCelsius) == 0;
     }
 
     @Override
